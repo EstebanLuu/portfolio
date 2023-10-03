@@ -7,6 +7,8 @@ import {
   HiChatBubbleBottomCenterText,
   HiEnvelope,
 } from 'react-icons/hi2';
+import Link from 'next/link';
+import {useRouter} from 'next/router';
 
 // nav data
 export const navData = [
@@ -26,8 +28,19 @@ export const navData = [
   },
 ];
 
+
 const Nav = () => {
-  return <nav>nav</nav>;
+  return <nav>
+    <div>
+      {
+       navData.map((ele, ind)=> 
+        <div key={ind}>
+          <Link href={ele.path}>{ele.icon}</Link>
+        </div>
+        ) 
+      }
+    </div>
+  </nav>;
 };
 
 export default Nav;
